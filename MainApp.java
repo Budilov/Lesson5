@@ -29,16 +29,16 @@ public class MainApp {
             arr[i] = 1;
         }
         System.out.printf("Один поток %d%n", singleThreadCalc(arr));
-        System.out.println(arr[h]);
-        for (int i = 0; i < size; i++){
+
+        for (int i = 0; i < size; i++){     //снова заполняем единицами
             arr[i] = 1;
         }
 
         System.out.printf("Два потока %d%n", doubleThreadCalc(arr));
-        System.out.println(arr[h]);
 
     }
 
+    //метод "обычного" пересчета
     private static long singleThreadCalc(float[] arr){
         long a = System.currentTimeMillis();
         for (int i = 0; i < size; i++){
@@ -48,6 +48,7 @@ public class MainApp {
         return System.currentTimeMillis() - a;
     }
 
+    //метод пересчета в два потока
     private static long doubleThreadCalc(float[] arr){
         long a = System.currentTimeMillis();
         float[] a1 = new float[h];
